@@ -32,7 +32,7 @@ for (let button of operatorButtons) {
         if (this.innerText === "=") {
             // Convert operands to numbers and perform operation
             const result = operate(parseFloat(a), parseFloat(b), operation);
-            screen.innerText = result;
+            screen.innerText = result.toFixed(5);
             // Reset state for next calculation (or store result as new 'a')
             a = result.toString();
             b = "";
@@ -49,7 +49,7 @@ for (let button of operatorButtons) {
             // Only set the operation if it hasn't been set yet
             if (operation) {
                 let result = operate(parseFloat(a), parseFloat(b), operation);
-                screen.innerText = result + this.innerText;
+                screen.innerText = result.toFixed(5) + this.innerText;
                 a = result.toString();
                 b = "";
                 operation = this.innerText;
