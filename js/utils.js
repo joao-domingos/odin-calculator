@@ -1,37 +1,16 @@
-var a, b, operation;
+// utils.js
+export function operate(a, b, operation) {
+    const operations = {
+        "+": (x, y) => x + y,
+        "-": (x, y) => x - y,
+        "*": (x, y) => x * y,
+        "/": (x, y) => x / y,
+    };
 
-function operate(a, b, operation) {
-    switch (operation) {
-        case "+":
-            return add(a, b);
-            break;
-        case "-":
-            return sub(a, b);
-            break;
-        case "*":
-            return multiply(a, b);
-            break;
-        case "/":
-            return divide(a, b);
-            break;
-        default:
-            console.log("invalid operation")
-            break;
+    const func = operations[operation];
+    if (func) {
+        return func(a, b);
+    } else {
+        console.error("Invalid operator: " + operation);
     }
-}
-
-function add(a, b) {
-    return a + b;
-}
-
-function sub(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
 }
